@@ -2,20 +2,15 @@ import Foundation
 
 func solution(_ absolutes:[Int], _ signs:[Bool]) -> Int {
     
-    var index = 0 
-    var sum = 0
+    var index = 0
+    var array = absolutes
     
-    for i in absolutes {
-        let isSigned = signs[index]
-        if isSigned {
-            sum += i
-        } else {
-            sum -= i
-        }
-        
+    for i in signs {
+        if !i { array[index] = -absolutes[index] }
         index += 1
     }
     
     
-    return sum
+    return array.reduce(0,+)
+  
 }
